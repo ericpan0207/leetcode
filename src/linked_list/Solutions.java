@@ -6,7 +6,6 @@ class Solutions {
      *  Original idea: Find length of list and subtract n to find location to skip
      *  Better Idea: create a gap of n length between two pointers, then when hare
      *      pointer reaches end, the tortoise pointer is in the right spot to skip
-     *
      */
     // Example : 1 -> 2 -> 3 -> 4 -> 5, n = 2
     //  return : 1 -> 2 -> 3 -> 5

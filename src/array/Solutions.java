@@ -2,9 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Solutions {
-    /* Idea: 4 variables to keep track of corners of matrix
-     *
-     */
+    // Spiral Matrix
+    // Idea: 4 variables to keep track of corners of matrix
     // Example: [
     //              [1, 2, 3],
     //              [4, 5, 6],
