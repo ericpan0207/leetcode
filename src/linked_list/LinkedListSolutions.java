@@ -1,7 +1,8 @@
 import static java.util.Arrays.asList;
 import java.util.List;
 import java.util.Arrays;
-class Solutions {
+
+class LinkedListSolutions {
     /* Tortoise and hare pointers:
      *  Original idea: Find length of list and subtract n to find location to skip
      *  Better Idea: create a gap of n length between two pointers, then when hare
@@ -80,7 +81,7 @@ class Solutions {
         }
     }
 
-    private static ListNode linkedList(List<Integer> list) {
+    public static ListNode linkedList(List<Integer> list) {
         ListNode head = new ListNode(0);
         ListNode curr = head;
         for (int num : list) {
@@ -90,7 +91,7 @@ class Solutions {
         return head.next;
     }
 
-    private static void print(ListNode head) {
+    public static void print(ListNode head) {
         while (head != null) {
             System.out.print(head.val + ", ");
             head = head.next;
