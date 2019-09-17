@@ -57,6 +57,41 @@ class HeapSolutions {
         return topK;
     }
 
+    // Find Median from Data Stream
+    // Idea: Using two heaps, so that median can be found by checking the root of the heaps
+    static class MedianFinder {
+        PriorityQueue<Integer> minHeap;
+        PriorityQueue<Integer> maxHeap;
+
+        public MedianFinder() {
+            minHeap = new PriorityQueue<Integer>();
+            maxHeap = new PriorityQueue<Integer>((n1, n2) -> n2 - n1);
+        }
+
+        public void addNum(int num) {
+            if (!minHeap.isEmpty() && minHeap.peek() > num) {
+                maxHeap.add(num);
+                if (maxHeap.size() > minHeap.size()) {
+                    minHeap.add(maxHeap.poll());
+                }
+            } else {
+                minHeap.add(num);
+                if (minHeap.size() > maxHeap.size() + 1) {
+                    maxHeap.add(minHeap.poll());
+                }
+            }
+        }
+
+        public double findMedian() {
+            int total = minHeap.size() + maxHeap.size();
+            if (total % 2 != 0) {
+                return minHeap.peek();
+            } else {
+                return (double) (minHeap.peek() + maxHeap.peek()) / 2;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         // Testing mergeKLists
         // ___________________
@@ -70,8 +105,18 @@ class HeapSolutions {
 
         // ListNode result = mergeKLists(lists);
         // LinkedListSolutions.print(result);
-        //
-        int[] nums = new int[] {1, 1, 1, 2, 2, 3};
-        System.out.println(topKFrequent(nums, 2));
+
+        // Testing topKFrequent
+        // --------------------
+        // int[] nums = new int[] {1, 1, 1, 2, 2, 3};
+        // System.out.println(topKFrequent(nums, 2));
+
+        MedianFinder m = new MedianFinder();
+        m.addNum(5);
+        System.out.println(m.findMedian());
+        m.addNum(2);
+        System.out.println(m.findMedian());
+        m.addNum(3);
+        System.out.println(m.findMedian());
     }
 }
