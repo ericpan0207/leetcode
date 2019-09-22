@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Solutions {
+class ArraySolutions {
     // Spiral Matrix
     // Idea: 4 variables to keep track of corners of matrix
     // Example: [
