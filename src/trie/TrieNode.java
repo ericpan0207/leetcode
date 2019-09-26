@@ -1,7 +1,11 @@
 import java.util.*;
 
 public class TrieNode {
-    private HashMap<Character, TrieNode> children;
-    private String content;
+    private char c;
+    private Map<Character, TrieNode> children;
     private boolean isWord;
+
+    public TrieNode() {
+        children = new HashMap<Character, TrieNode>();
+    }
 }
