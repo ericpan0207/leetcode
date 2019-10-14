@@ -2,8 +2,9 @@ import java.util.*;
 
 public class TrieNode {
     private char c;
+    // Can save on space by using a list instead: TrieNode[128]
     private Map<Character, TrieNode> children;
-    private boolean isWord;
+    private boolean isEndOfWord;
 
     public TrieNode() {
         children = new HashMap<Character, TrieNode>();
@@ -23,6 +24,10 @@ public class TrieNode {
     }
 
     public void setEndOfWord(boolean isEnd) {
-        isWord = isEnd;
+        isEndOfWord = isEnd;
+    }
+
+    public boolean isEndOfWord() {
+        return this.isEndOfWord;
     }
 }

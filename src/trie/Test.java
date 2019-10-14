@@ -7,6 +7,10 @@ public class Test {
         t.insert("help");
         t.insert("halo");
         t.insert("test");
-        t.view(t.root, 0);
+        t.view();
+        System.out.println(t.find("help"));
+        System.out.println(t.find("rip"));
+        t.delete("halo");
+        t.view();
     }
 }
